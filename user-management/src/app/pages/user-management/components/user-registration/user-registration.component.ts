@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from '../../../../core/components/snackbar/services/snackbar.service';
 import { SnackbarType } from '../../../../core/components/snackbar/models/snackbar-type';
+import { UserManagementService } from '../../services/user-management.service';
+import { User } from '../../interfaces/users.interface';
 
 @Component({
   selector: 'app-user-registration',
@@ -12,19 +14,20 @@ import { SnackbarType } from '../../../../core/components/snackbar/models/snackb
 export class UserRegistrationComponent {
   userRegistration!: FormGroup;
   countries = [
-    {value: 'US', viewValue: 'United States'},
-    {value: 'MX', viewValue: 'Mexico'},
-    {value: 'CO', viewValue: 'Colombia'},
-    {value: 'AR', viewValue: 'Argentina'},
-    {value: 'PE', viewValue: 'Peru'},
-    {value: 'ES', viewValue: 'Spain'},
+    {value: 'United States'},
+    {value: 'Mexico'},
+    {value: 'Colombia'},
+    {value: 'Argentina'},
+    {value: 'Peru'},
+    {value: 'Spain'},
   ];
 
   formBuilder = inject(FormBuilder);
-  snackbar = inject(SnackbarService)
+  snackbar = inject(SnackbarService);
+  userService = inject(UserManagementService)
 
   ngOnInit(){
-    this.userRegistration = this.buildRegistrationForm()
+    this.userRegistration = this.buildRegistrationForm();
   }
 
   buildRegistrationForm(): FormGroup {
@@ -43,10 +46,18 @@ export class UserRegistrationComponent {
         Validators.pattern(/^[0-9]+$/)
       ]],
       country: ['']
-    })
+    });
   }
 
   submit(){
-    this.snackbar.openCustomSnackbar("User registered successfully", SnackbarType.success)
+    if (this.userRegistration.valid) {
+      const newUser: User = this.userRegistration.value;
+      this.userService.createUser(newUser);
+      
+      this.snackbar.openCustomSnackbar("User registered successfully", SnackbarType.success)
+      
+      this.userRegistration.reset();
+    }
+    
   }
 }

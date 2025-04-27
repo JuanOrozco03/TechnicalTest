@@ -45,7 +45,7 @@
                         <mat-select formControlName="country" placeholder="Select your country">
                             @for (country of countries; track $index) {
                                 <mat-option [value]="country.value">
-                                    {{country.viewValue}}
+                                    {{country.value}}
                                 </mat-option>
                             }
                           </mat-select>

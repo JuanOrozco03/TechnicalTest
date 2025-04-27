@@ -5,6 +5,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+mat-card-content{
+    padding: 16px !important;
+}
+
 .mat-mdc-snack-bar-label{
     padding: 0px !important;
 }

@@ -28,7 +28,7 @@ export class SnackbarService {
 
     const snackbarRef: MatSnackBarRef<SnackbarComponent> =
         this.snackBar.openFromComponent(SnackbarComponent, {
-        duration: 1000000,
+        duration: 3000,
         verticalPosition: 'top',
         });
 

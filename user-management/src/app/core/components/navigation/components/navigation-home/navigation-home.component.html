@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sidenav-container" fullscreen>
+    <mat-sidenav
+    opened
+    #sidenav
+    mode="side"
+    >
+        <section class="logo-container">
+            <img src="/assets/img/CCS_logo.png" alt="Logo empresa">
+        </section>
+        <section class="buttons">
+            <p>Module name</p>
+            <a
+            class="sidenav-button"
+            mat-button
+            matTooltip="User registration"
+            matTooltipPosition="right"
+            (click)="navigateRoute('user-management/register')"
+            >
+                <span>User registration</span>
+                <mat-icon>person_add</mat-icon>
+            </a>
+            <a
+            class="sidenav-button"
+            mat-button
+            matTooltip="List of users"
+            matTooltipPosition="right"
+            (click)="navigateRoute('user-management/users')"
+            >
+                <span>List of users</span>
+                <mat-icon>list</mat-icon>
+            </a>
+        </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-toolbar (emit)="toggle()"></app-toolbar>
+        <main class="main-container">
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

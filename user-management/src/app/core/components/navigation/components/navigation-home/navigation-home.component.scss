@@ -1,0 +1,36 @@
+mat-sidenav-content{
+    background-color: #E3E3E3;
+}
+mat-sidenav{
+    background-color: #FFFFFF !important;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: center;
+    img{
+        width: inherit;
+        height: 200px;
+    }
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+
+    p{
+        margin-left: 12px;
+    }
+}
+
+.sidenav-button{
+    background-color: transparent;
+    justify-content: flex-start;
+    height: 50px;
+    display: flex;
+    justify-items: left;
+}
+
+.main-container{
+    padding: 8px;
+}

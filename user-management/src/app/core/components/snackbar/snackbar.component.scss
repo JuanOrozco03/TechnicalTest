@@ -1,0 +1,20 @@
+.snackbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #323232;
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.snackbar button{
+    align-items: center;
+    justify-content: center;
+}
+
+.shadow {
+    box-shadow: rgba(31, 31, 46, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px,
+    rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}

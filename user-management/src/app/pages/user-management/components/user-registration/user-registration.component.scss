@@ -1,0 +1,54 @@
+mat-card-content{
+    padding: 16px;
+}
+
+.creation-form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.row-2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.row-2 > *{
+    width: 45%;
+    min-width: 250px;
+}
+
+.input-field{
+    display: flex;
+    flex-direction: column;
+
+    p{
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    button{
+        background-color: #155583;
+        color: #FFFFFF;
+    }
+
+    button:disabled{
+        background-color: #bebebe;
+    }
+}
+
+@media (max-width: 550px) {
+    .row-2 > *{
+        width: 100%;
+        min-width: 250px;
+    }
+}

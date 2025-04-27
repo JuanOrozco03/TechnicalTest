@@ -5,6 +5,15 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-mdc-snack-bar-label{
+    padding: 0px !important;
+}
+
+.mat-mdc-snackbar-surface{
+    padding: 0px !important;
+    border-radius: 10px !important
+}
+
 .dense-3 {
     @include mat.form-field-density(-3);
 }

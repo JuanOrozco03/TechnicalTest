@@ -14,12 +14,11 @@
             />
         </mat-form-field>
         <section class="table-container mat-elevation-z2">
-            <table mat-table [dataSource]="users" matSort>
+            <table mat-table [dataSource]="users">
               <ng-container matColumnDef="name">
                 <th
                   mat-header-cell
                   *matHeaderCellDef
-                  mat-sort-header
                   class="table-header"
                 >
                   Name
@@ -31,7 +30,6 @@
                 <th
                   mat-header-cell
                   *matHeaderCellDef
-                  mat-sort-header
                   class="table-header"
                 >
                   Email
@@ -43,7 +41,6 @@
                 <th
                   mat-header-cell
                   *matHeaderCellDef
-                  mat-sort-header
                   class="table-header"
                 >
                   Age
@@ -55,7 +52,6 @@
                 <th
                   mat-header-cell
                   *matHeaderCellDef
-                  mat-sort-header
                   class="table-header"
                 >
                   Country

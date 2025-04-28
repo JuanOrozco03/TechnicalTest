@@ -15,9 +15,6 @@ import { Subscription } from 'rxjs';
   styleUrl: './user-list.component.scss'
 })
 export class UserListComponent {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   usersColumns: string[] = [
     'name',
     'email',
@@ -40,9 +37,6 @@ export class UserListComponent {
       ...this.subscription$,
       this.userService.getUsers().subscribe(result => {
         this.users = new MatTableDataSource(result);
-        this.users.paginator = this.paginator;
-        this.users.sort = this.sort;
-        this.paginator._intl.itemsPerPageLabel = 'Ejemplos por pagina: ';
       })
     ]    
   }

@@ -17,6 +17,12 @@
                         @if (this.userRegistration.get('name')?.hasError('required')) {
                             <mat-error>The name field is required</mat-error>
                         }
+                        @if (this.userRegistration.get('name')?.hasError('minlength')) {
+                            <mat-error>The name must be more than 3 characters</mat-error>
+                        }
+                        @if (this.userRegistration.get('name')?.hasError('pattern')) {
+                            <mat-error>The name must only contain letters</mat-error>
+                        }
                     </mat-form-field>
                 </div>
                 <div class="input-field">
@@ -37,18 +43,25 @@
                         @if (this.userRegistration.get('email')?.hasError('email')) {
                             <mat-error>Enter a valid email</mat-error>
                         }
+                        @if (this.userRegistration.get('email')?.hasError('required')) {
+                            <mat-error>Email must be entered</mat-error>
+                        }
                     </mat-form-field>
                 </div>
                 <div class="input-field">
                     <p>Country</p>
                     <mat-form-field appearance="outline" class="dense-3">
                         <mat-select formControlName="country" placeholder="Select your country">
+                            <mat-option [value]="''">Select a country</mat-option>
                             @for (country of countries; track $index) {
                                 <mat-option [value]="country.value">
                                     {{country.value}}
                                 </mat-option>
                             }
                           </mat-select>
+                          @if (userRegistration.get('country')?.hasError('required')) {
+                            <mat-error>Country is required for users over 21 years old</mat-error>
+                          }
                     </mat-form-field>
                 </div>
             </div>

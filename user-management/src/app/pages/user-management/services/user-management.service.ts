@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../interfaces/users.interface';
 
 @Injectable({
@@ -34,10 +34,10 @@ export class UserManagementService {
 
   /**
    * Gets all users from the in-memory list
-   * @returns An array with all users
+   * @returns An Observable that emits the current list of users and subsequent updates
    */
-  getUsers(): User[] {
-    return [...this.users];
+  getUsers(): Observable<User[]> {
+    return this.usersSubject.asObservable();
   }
 
   /**

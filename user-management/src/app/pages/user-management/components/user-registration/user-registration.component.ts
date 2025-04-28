@@ -28,6 +28,7 @@ export class UserRegistrationComponent {
 
   ngOnInit(){
     this.userRegistration = this.buildRegistrationForm();
+    this.setupAgeValidation();
   }
 
   buildRegistrationForm(): FormGroup {
@@ -46,6 +47,20 @@ export class UserRegistrationComponent {
         Validators.pattern(/^[0-9]+$/)
       ]],
       country: ['']
+    });
+  }
+
+  setupAgeValidation() {
+    this.userRegistration.get('age')?.valueChanges.subscribe(age => {
+      const countryControl = this.userRegistration.get('country');
+      
+      if (age > 21) {
+        countryControl?.setValidators([Validators.required]);
+      } else {
+        countryControl?.clearValidators();
+      }
+      
+      countryControl?.updateValueAndValidity();
     });
   }
 
